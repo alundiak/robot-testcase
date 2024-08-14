@@ -322,6 +322,7 @@ poetry.toml
 pyrightconfig.json
 
 ### robotframework ###
+results
 log.html
 output.xml
 report.html
@@ -333,4 +334,4 @@ selenium-screenshot-*.png
 # My custom
 # 
 # My Local Python envirnment fodler
-robotEnv
+myRobotEnv
