@@ -1,0 +1,27 @@
+name: Verify things
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - run: python Libraries/test_robot.py
+    # it refers to robot.__version__ inside
+
+    # - run: pylint $(git ls-files '*.py')
+    - run: pylint Libraries/*.py
